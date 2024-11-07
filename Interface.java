@@ -37,6 +37,7 @@ class Duck implements Flyable, Swimmable {
 }
 
 interface Animal2 {
+    String x = "var is static and final by default"; //
     // Abstract method (no body)
     void eat();
 
@@ -55,6 +56,7 @@ class Dog2 implements Animal2 {
     // Providing implementation for the eat method
     public void eat() {
         System.out.println("Dog eats bones.");
+        System.out.println(x);
     }
 }
 
