@@ -9,33 +9,47 @@ package oop;
 public class Encapsulation {
 
     public static void main(String[] args) {
-        Bank k = new Bank(1);
-        k.setMoney(1, 500);
-        System.out.println(k.getMoney(1));
-        System.out.println(k.getMoney(2));
+        BankAccount k = new BankAccount("01", 500);
+        k.deposit(1000);
+        System.out.println(k.getAccountNumber() +": "+ k.getBalance());
+        k.withdraw(500);
+        System.out.println(k.getAccountNumber() +": "+ k.getBalance());
     }
 }
 
-class Bank {
+class BankAccount {
+    // Private fields
+    private String accountNumber;
+    private double balance;
 
-    private int id, money;
-
-    public Bank(int id) {
-        this.id = id;
+    // Constructor
+    public BankAccount(String accountNumber, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
     }
 
-    public void setMoney(int id, int money) {
-        if (id == this.id && money > 0) {
-            this.money += money;
-            System.out.println("Money deposited");
+    // Getter and Setter methods
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
         }
     }
 
-    public int getMoney(int id) {
-        if (id != this.id) {
-            System.out.println("Invalid Id");
-            return -1;
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrew: " + amount);
+        } else {
+            System.out.println("Insufficient funds or invalid amount.");
         }
-        return money;
     }
 }
