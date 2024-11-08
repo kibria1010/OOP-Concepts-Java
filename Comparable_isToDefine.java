@@ -1,10 +1,9 @@
 package oop;
 
-// Comparable_to_define_how_a_class_is_to_be_sorted.
 import java.util.*;
 
+// Comparable_to_define_how_a_class_is_to_be_sorted.
 public class Comparable_isToDefine {
-    // Set up array with a few Employee classes
 
     public static void main(String[] args) {
 
